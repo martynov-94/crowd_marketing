@@ -1,0 +1,18 @@
+html {
+  font-size: 16px;
+
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  text-align: justify;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  // background-color: wheat;
+}
