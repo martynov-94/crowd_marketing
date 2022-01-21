@@ -1,0 +1,51 @@
+-
+  const mainTitle = "Почувствуйте эффект продвижения";
+  const mainText = "Прозрачная статистика как никогда до этого. Оцените влияние ваших действий на рост аккаунта";
+  const profitTitle = "Вы увидите каждого, кто лайкнул или подписался на вас";
+  const profitText = "Каждое продвижение записывается в историю для отслеживания активности";
+
+  class showcaseStatsItem {
+    constructor(logo, socialNetwork, date, stats) {
+      this.logo = {
+        src: logo,
+        width: 24,
+        height: 24,
+        alt: socialNetwork
+      };
+      this.socialNetwork = socialNetwork;
+      this.date = date;
+
+      const statsTypes = [ "Лайков", "Подписчиков", "Репостов" ];
+
+      this.stats = stats.reduce((arr, stat, i) => (arr.push(`+${stat} ${statsTypes[i]}`), arr), []);
+    }
+  };
+
+  const statistics = [];
+  statistics.push(new showcaseStatsItem(
+    "img/instagram_logo.png",
+    "Instagram",
+    "Вторник, 4 января",
+    [97, 32, 51]
+  ));
+  
+  statistics.push(new showcaseStatsItem(
+    "img/twitter_logo.png",
+    "Twitter",
+    "Вторник, 4 января",
+    [85, 26, 36]
+  ));
+
+
+mixin effect()
+  section.effect__main-point
+    h2= mainTitle
+    p= mainText
+  section.effect__profit 
+    h3= profitTitle 
+    p= profitText 
+  .effect__showcase 
+    each stat in statistics
+      
+      img.effect__logo(src=stat.logo.src width=stat.logo.width height=stat.logo.height alt=stat.logo.alt)
+
