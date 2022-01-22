@@ -1,23 +1,28 @@
 const breakpointLarge = 768;
-// const breakpointLarge = 600;
 
 const [
   headerMenu, 
   headerAuthBtns, 
   headerMenuBtn,
+  descriptionBannerSmall,
+  descriptionBannerBig,
 ] = [
   ".header__menu", 
   ".header__auth-btns",
   ".header__menu-btn",
+  ".description__banner_small",
+  ".description__banner_big",
 ].map(selector => document.querySelector(selector));
+
+const mobileElements = [
+  headerMenuBtn,
+  descriptionBannerSmall,
+];
 
 const desktopElements = [
   headerMenu, 
   headerAuthBtns,
-];
-
-const mobileElements = [
-  headerMenuBtn,
+  descriptionBannerBig,
 ];
 
 [

@@ -1,8 +1,14 @@
 -
-  const descriptionImg = {
+  const descriptionSmallImg = {
     path: "img/banner_mobile.png",
     width: "216",
     height: "216",
+    alt: "Баннер"
+  };
+  const descriptionBigImg = {
+    path: "img/banner_desktop.png",
+    width: "471",
+    height: "470",
     alt: "Баннер"
   };
   const descriptionTitle = "Сервис заработка и раскрутки в интернете";
@@ -24,7 +30,10 @@
 
 mixin description()
   article.description
-    img.description__banner(src=descriptionImg.path width=descriptionImg.width height=descriptionImg.height alt=descriptionImg.alt)
+    .description__banner.description__banner_small
+      img(src=descriptionSmallImg.path width=descriptionSmallImg.width height=descriptionSmallImg.height alt=descriptionSmallImg.alt)
+    .description__banner.description__banner_big.visually-hidden
+      img(src=descriptionBigImg.path width=descriptionBigImg.width height=descriptionBigImg.height alt=descriptionBigImg.alt)
     section.description__main-point
       h1.description__title= descriptionTitle
       p.description__text= descriptionText
