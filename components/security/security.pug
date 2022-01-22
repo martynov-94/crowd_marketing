@@ -1,0 +1,17 @@
+-
+  const securityTitle = "Полная безопасность";
+  const securityText = "Для обеспечения безопасности наша команда на протяжении многих лет изучает алгоритмы социальных сетей, благодаря чему нам удается соблюдать допустимые соц сетями лимит, полностью избегая тем самым любых блокировок";
+  const securityBanner = {
+    src: "img/security_banner.png",
+    width: 190,
+    height: 176,
+    alt: ""
+  };
+
+
+mixin security()
+  article.security
+    section.security__main-point 
+      h2.security__main-point-title= securityTitle
+      p.security__main-point-text= securityText
+    img.security__banner(src=securityBanner.src width=securityBanner.width height=securityBanner.height alt=securityBanner.alt)

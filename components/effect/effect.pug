@@ -1,10 +1,11 @@
 -
-  const mainTitle = "Почувствуйте эффект продвижения";
-  const mainText = "Прозрачная статистика как никогда до этого. Оцените влияние ваших действий на рост аккаунта";
-  const profitTitle = "Вы увидите каждого, кто лайкнул или подписался на вас";
-  const profitText = "Каждое продвижение записывается в историю для отслеживания активности";
+  const effectMainTitle = "Почувствуйте эффект продвижения";
+  const effectMainText = "Прозрачная статистика как никогда до этого. Оцените влияние ваших действий на рост аккаунта";
+  const effectProfitTitle = "Вы увидите каждого, кто лайкнул или подписался на вас";
+  const effectProfitText = "Каждое продвижение записывается в историю для отслеживания активности";
+  const effectStatsTypes = [ "Лайков", "Подписчиков", "Репостов" ];
 
-  class showcaseStatsItem {
+  class ShowcaseStatsItem {
     constructor(logo, socialNetwork, date, stats) {
       this.logo = {
         src: logo,
@@ -14,22 +15,19 @@
       };
       this.socialNetwork = socialNetwork;
       this.date = date;
-
-      const statsTypes = [ "Лайков", "Подписчиков", "Репостов" ];
-
-      this.stats = stats.reduce((arr, stat, i) => (arr.push(`+${stat} ${statsTypes[i]}`), arr), []);
+      this.statsNumbers = stats;
     }
   };
 
-  const statistics = [];
-  statistics.push(new showcaseStatsItem(
+  const effectStatistics = [];
+  effectStatistics.push(new ShowcaseStatsItem(
     "img/instagram_logo.png",
     "Instagram",
     "Вторник, 4 января",
     [97, 32, 51]
   ));
   
-  statistics.push(new showcaseStatsItem(
+  effectStatistics.push(new ShowcaseStatsItem(
     "img/twitter_logo.png",
     "Twitter",
     "Вторник, 4 января",
@@ -38,14 +36,20 @@
 
 
 mixin effect()
-  section.effect__main-point
-    h2= mainTitle
-    p= mainText
-  section.effect__profit 
-    h3= profitTitle 
-    p= profitText 
-  .effect__showcase 
-    each stat in statistics
-      
-      img.effect__logo(src=stat.logo.src width=stat.logo.width height=stat.logo.height alt=stat.logo.alt)
-
+  article.effect
+    section.effect__main-point
+      h2.effect__main-title= effectMainTitle
+      p.effect__main-text= effectMainText
+    section.effect__profit 
+      h3.effect__profit-title= effectProfitTitle 
+      p.effect__profit-text= effectProfitText 
+    .effect__showcase 
+      each stat in effectStatistics
+        img.effect__network-logo(src=stat.logo.src width=stat.logo.width height=stat.logo.height alt=stat.logo.alt)
+        span.effect__network-name= stat.socialNetwork
+        span.effect__date= stat.date
+        ul.effect__stats-list 
+          each item, index in stat.statsNumbers
+            li.effect__stats-item
+              span.effect__stats-item-value= `+${item} `
+              span.effect__stats-item-unit= effectStatsTypes[index]

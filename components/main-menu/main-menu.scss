@@ -1,0 +1,21 @@
+.main-menu {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    a:link, a:visited, a:hover, a:active {
+      font-size: 0.9375rem;
+      line-height: 1.2;
+      color: $font-color-strong;
+      text-decoration: none;
+    }
+  }
+
+  &__item:not(:last-of-type) {
+    margin-right: 2.22vw;
+  }
+}

@@ -1,0 +1,6 @@
+.description {
+  align-items: flex-start;
+}
+.description__banner {
+  align-self: center;
+}

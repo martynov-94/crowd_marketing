@@ -1,5 +1,5 @@
 -
-  let menuItems = [
+  const mainMenuItems = [
     {
       text: "Новости",
       link: "#.html"
@@ -16,6 +16,6 @@
 
 mixin main-menu()
   ul.main-menu__list
-    each item in menuItems
+    each item in mainMenuItems
       li.main-menu__item
         a(href= item.link)= item.text

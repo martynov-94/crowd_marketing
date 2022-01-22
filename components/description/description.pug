@@ -1,36 +1,37 @@
 -
-  const img = {
+  const descriptionImg = {
     path: "img/banner_mobile.png",
     width: "216",
     height: "216",
     alt: "Баннер"
   };
-  const title = "Сервис заработка и раскрутки в интернете";
-  const text = "Получай реальную целевую аудиторию без ботов, банов, ввода пароля и без сомнительных конкурсов";
-  const btnText = "Попробовать сейчас";
+  const descriptionTitle = "Сервис заработка и раскрутки в интернете";
+  const descriptionText = "Получай реальную целевую аудиторию без ботов, банов, ввода пароля и без сомнительных конкурсов";
+  const descriptionBtnText = "Попробовать сейчас";
   
-  class statsItem {
+  class StatsItem {
     constructor(number, unit) {
       this.number = number;
       this.unit = unit;
     }
   }
   
-  const stats = [];
-  stats.push(new statsItem("1M+", "Выполненных заданий"));
-  stats.push(new statsItem("2K+", "Доступно заданий"));
-  stats.push(new statsItem("100K+", "Зарегистрировано исполнителей"));
+  const descriptionStats = [];
+  descriptionStats.push(new StatsItem("1M+", "Выполнених заданий"));
+  descriptionStats.push(new StatsItem("2K+", "Доступно заданий"));
+  descriptionStats.push(new StatsItem("100K+", "Зарегистрировано исполнителей"));
 
 
 mixin description()
-  img.description__banner(src=img.path width=img.width height=img.height alt=img.alt)
-  section.description__main-point
-    h1= title
-    p= text
-  button.description__cta-btn= btnText
-  .description__stats
-    ul
-      each item in stats 
-        li
-          span.description__stats-item-number= item.number
-          span.description__stats-item-unit= item.unit
+  article.description
+    img.description__banner(src=descriptionImg.path width=descriptionImg.width height=descriptionImg.height alt=descriptionImg.alt)
+    section.description__main-point
+      h1.description__title= descriptionTitle
+      p.description__text= descriptionText
+    button.description__cta-btn= descriptionBtnText
+    .description__stats
+      ul.description__stats-list
+        each item in descriptionStats 
+          li.description__stats-item
+            span.description__stats-item-number= item.number
+            span.description__stats-item-unit= item.unit

@@ -1,0 +1,45 @@
+-
+  const mainPointTitle = "Зарабатывайте выполняя задания";
+  const mainPointText = "3 шага чтобы начать зарабатывать";
+  
+  class Step {
+    constructor(img, title, action) {
+      this.img = {
+        src: img,
+        width: 222,
+        height: 187,
+        alt: title
+      };
+      this.title = title;
+      this.action = action;
+    }
+  }
+
+  const steps = [];
+  steps.push(new Step(
+    "img/step1.png",
+    "Выполняйте задания",
+    "Выполняйте интересные задания от заказчиков в свободное для Вас время"
+  ));
+  steps.push(new Step(
+    "img/step2.png",
+    "Зарабатывайте деньги",
+    "Получайте честно заработанные деньги сразу же после проверки задания"
+  ));
+  steps.push(new Step(
+    "img/step3.png",
+    "Получите результат",
+    "Тысячи заказчиков готовы платить за выполнение вами задания"
+  ));
+
+
+mixin work-process()
+  section.work-process__main-point 
+    h2.work-process__main-point-title= mainPointTitle
+    p.work-process__main-point-text= mainPointText
+  ul.work-process__steps-list 
+    each step in steps
+      li.work-process__steps-item
+        img.work-process__steps-item-img(src=step.img.src width=step.img.width height=step.img.height alt=step.img.alt)
+        h3.work-process__steps-item-title= step.title 
+        p.work-process__steps-item-action= step.action 
